@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "target": "ES2021",
+        "baseUrl": "./src",
+        "paths": {
+            "@reduxConfig": ["./redux"],
+            "@reduxTypes": ["./redux/ActionConstant"],
+
+            "@root/*": ["./*"],
+            "@api/*": ["./api/*"],
+            "@assets/*": ["./assets/*"],
+            "@components/*": ["./components/*"],
+            "@pages/*": ["./pages/*"],
+            "@layout/*": ["./layout/*"],
+            "@styles/*": ["./styles/*"],
+            "@constants/*": ["./utils/constants/*"],
+            "@lib/*": ["./utils/lib/*"],
+            "@redux/*": ["./redux/modules/*"]
+        }
+    }
+}

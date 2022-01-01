@@ -1,0 +1,80 @@
+@import '../mixins/font';
+
+@include font-face('Noto Sans KR', 'Noto Sans KR', 100, normal, swap);
+
+.book-list-wrapper {
+    display: grid;
+    width: 70rem;
+    min-height: 40rem;
+    grid-gap: 5rem;
+    grid-template-columns: repeat(3, 1fr);
+    margin: auto;
+}
+
+.book-item {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+
+    .book-contents {
+        position: absolute;
+        text-align: left;
+        position: absolute;
+        bottom: 0;
+        margin: 0 auto;
+        background-color: $secondary-color;
+        padding: 15px;
+        opacity: 0;
+        visibility: visible;
+        width: 100%;
+    }
+
+    &:hover {
+        .book-image {
+            img {
+                opacity: 0.5;
+            }
+        }
+        .book-contents {
+            opacity: 1;
+            transition: all 0.6s 0s;
+
+            .book-publisher {
+                margin-bottom: 0.5rem;
+                font-size: 1.2rem;
+                font-weight: 300;
+                color: $menu-caption-color;
+            }
+
+            .book-title {
+                margin-bottom: 1rem;
+                font-size: 1.7rem;
+                font-weight: 600;
+                line-height: 25px;
+                color: $menu-caption-color;
+            }
+
+            .book-price {
+                font-size: 1.5rem;
+                font-weight: 600;
+                line-height: 25px;
+                color: $light-color;
+
+                strike {
+                    font-size: 1.4rem;
+                    margin-left: 1rem;
+                    color: $menu-caption-color;
+                }
+            }
+        }
+    }
+}
+
+.loading-block {
+    display: block;
+    height: 1px;
+    min-height: 1px;
+    margin: 0 auto;
+    text-align: center;
+}

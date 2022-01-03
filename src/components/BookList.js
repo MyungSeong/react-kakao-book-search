@@ -10,7 +10,7 @@ const BookList = ({ state, nextPage }) => {
         threshold: 0.5,
     });
 
-    if (state.loading && !state.data) return <Loader />;
+    if (state.loading) return <Loader />;
     if (state.data?.error)
         return <Message>에러 발생! ({state.data.error})</Message>;
     if (!state.data) return <Message>검색어를 입력해주세요</Message>;

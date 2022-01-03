@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 
-const infiniteScroll = (target, run, options) => {
+const InfiniteScroll = (target, run, options) => {
     const [ref, inView, entry] = useInView(options);
 
     useEffect(() => {
@@ -13,4 +13,4 @@ const infiniteScroll = (target, run, options) => {
     return [ref];
 };
 
-export default infiniteScroll;
+export default InfiniteScroll;

@@ -32,7 +32,8 @@
     "devDependencies": {
         "@babel/runtime": "7.13.8",
         "craco-alias": "^3.0.1",
-        "eslint-plugin-react": "^7.28.0"
+        "eslint-plugin-react": "^7.28.0",
+        "eslint-plugin-react-hooks": "^4.3.0"
     },
     "scripts": {
         "start": "craco start",

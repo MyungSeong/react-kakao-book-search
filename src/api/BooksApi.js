@@ -9,7 +9,7 @@ const headers = {
 };
 
 export default class BooksApi {
-    getBooks(query, target = 'title', page, sort = 'accuracy', size = 10) {
+    getBooks({ query, target = 'title', page, sort = 'accuracy', size = 10 }) {
         return axios.get(URL, {
             headers,
             params: {

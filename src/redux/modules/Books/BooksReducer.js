@@ -18,12 +18,8 @@ const reducer = (state = initialState, { type, payload }) => {
             return {
                 ...state,
                 bookInfo: {
+                    ...state.bookInfo,
                     loading: true,
-                    query: payload.nextPage ? state.bookInfo.query : '',
-                    target: payload.nextPage ? state.bookInfo.target : '',
-                    sort: payload.nextPage ? state.bookInfo.sort : '',
-                    data: payload.nextPage ? state.bookInfo.data : null,
-                    page: payload.nextPage ? state.bookInfo.page : 1,
                 },
             };
 
@@ -31,14 +27,11 @@ const reducer = (state = initialState, { type, payload }) => {
             return {
                 ...state,
                 bookInfo: {
+                    ...state.bookInfo,
                     loading: false,
-                    query: payload.nextPage
-                        ? state.bookInfo.query
-                        : payload.query,
-                    target: payload.nextPage
-                        ? state.bookInfo.target
-                        : payload.target,
-                    sort: payload.nextPage ? state.bookInfo.sort : payload.sort,
+                    query: payload.query,
+                    target: payload.target,
+                    sort: payload.sort,
                     data: payload.nextPage
                         ? {
                               ...state.bookInfo.data,
@@ -56,7 +49,13 @@ const reducer = (state = initialState, { type, payload }) => {
         case Types.GET_BOOKS_FAILURE:
             return {
                 ...state,
-                bookInfo: { error: payload },
+                bookInfo: {
+                    ...state.bookInfo,
+                    loading: false,
+                    data: {
+                        error: payload,
+                    },
+                },
             };
 
         default:

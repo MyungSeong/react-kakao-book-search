@@ -6,7 +6,7 @@ import Loader from '@layout/Loader';
 import BookItem from './BookItem';
 
 const BookList = ({ state, nextPage }) => {
-    const [scrollRef] = infiniteScroll(!state.loading, nextPage, {
+    const [loadingRef] = infiniteScroll(!state.loading, nextPage, {
         threshold: 0.5,
     });
 
@@ -45,7 +45,7 @@ const BookList = ({ state, nextPage }) => {
             {!state.loading && <div className='loading-block' ref={setLbRef} />}
         </li> */
         <Container>
-            <Inner>
+            <Wrapper>
                 <List>
                     {state?.data?.documents?.length === 0 && (
                         <Message>검색 결과가 존재하지 않습니다.</Message>
@@ -56,8 +56,8 @@ const BookList = ({ state, nextPage }) => {
                         ))}
                 </List>
                 {state.loading && state.data && <Loader />}
-                {!state.loading && <LoadingBlock ref={scrollRef} />}
-            </Inner>
+                {!state.loading && <LoadingBlock ref={loadingRef} />}
+            </Wrapper>
         </Container>
     );
 };
@@ -68,7 +68,7 @@ const Container = styled.section`
     width: 100%;
 `;
 
-const Inner = styled.div`
+const Wrapper = styled.div`
     max-width: 1000px;
     width: 100%;
     margin: 0 auto;
